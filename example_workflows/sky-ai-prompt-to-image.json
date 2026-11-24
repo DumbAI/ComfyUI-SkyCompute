@@ -1,0 +1,426 @@
+{
+  "id": "71db387e-7a8f-449b-8d70-b958fe2b9956",
+  "revision": 0,
+  "last_node_id": 4,
+  "last_link_id": 4,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "SkyCompute_AIGateway",
+      "pos": [
+        40,
+        140
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "base_url",
+          "name": "base_url",
+          "type": "STRING",
+          "widget": {
+            "name": "base_url"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "timeout_s",
+          "name": "timeout_s",
+          "type": "INT",
+          "widget": {
+            "name": "timeout_s"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "max_retries",
+          "name": "max_retries",
+          "type": "INT",
+          "widget": {
+            "name": "max_retries"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "gateway",
+          "name": "gateway",
+          "type": "SKY_AI_GATEWAY",
+          "links": [
+            1,
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SkyCompute_AIGateway"
+      },
+      "widgets_values": [
+        "",
+        300,
+        2
+      ],
+      "widgets_values_named": {
+        "base_url": "",
+        "timeout_s": 300,
+        "max_retries": 2
+      }
+    },
+    {
+      "id": 2,
+      "type": "SkyCompute_AIPromptGenerator",
+      "pos": [
+        420,
+        80
+      ],
+      "size": [
+        420,
+        520
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "gateway",
+          "name": "gateway",
+          "shape": 7,
+          "type": "SKY_AI_GATEWAY",
+          "link": 1
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "COMBO",
+          "widget": {
+            "name": "model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "system",
+          "name": "system",
+          "type": "STRING",
+          "widget": {
+            "name": "system"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "temperature",
+          "name": "temperature",
+          "type": "FLOAT",
+          "widget": {
+            "name": "temperature"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "max_tokens",
+          "name": "max_tokens",
+          "type": "INT",
+          "widget": {
+            "name": "max_tokens"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            3
+          ]
+        },
+        {
+          "localized_name": "reasoning",
+          "name": "reasoning",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SkyCompute_AIPromptGenerator"
+      },
+      "widgets_values": [
+        "google/gemini-3.5-flash",
+        false,
+        "refresh",
+        "a lighthouse on a cliff at dusk, storm rolling in",
+        "You write prompts for text-to-image models. Turn the user's idea into one vivid, self-contained prompt: subject, composition, setting, lighting, style and medium, in natural language. If images are attached, ground the prompt in them. Reply with the prompt only: no preamble, no quotes, no markdown.",
+        0,
+        "randomize",
+        0.8,
+        0
+      ],
+      "widgets_values_named": {
+        "model": "google/gemini-3.5-flash",
+        "Auto-refresh after generation": false,
+        "refresh": "refresh",
+        "prompt": "a lighthouse on a cliff at dusk, storm rolling in",
+        "system": "You write prompts for text-to-image models. Turn the user's idea into one vivid, self-contained prompt: subject, composition, setting, lighting, style and medium, in natural language. If images are attached, ground the prompt in them. Reply with the prompt only: no preamble, no quotes, no markdown.",
+        "seed": 0,
+        "control_after_generate": "randomize",
+        "temperature": 0.8,
+        "max_tokens": 0
+      }
+    },
+    {
+      "id": 3,
+      "type": "SkyCompute_AIImageGenerator",
+      "pos": [
+        880,
+        80
+      ],
+      "size": [
+        380,
+        420
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "gateway",
+          "name": "gateway",
+          "shape": 7,
+          "type": "SKY_AI_GATEWAY",
+          "link": 2
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "COMBO",
+          "widget": {
+            "name": "model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 3
+        },
+        {
+          "localized_name": "aspect_ratio",
+          "name": "aspect_ratio",
+          "type": "COMBO",
+          "widget": {
+            "name": "aspect_ratio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "resolution",
+          "name": "resolution",
+          "type": "COMBO",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "count",
+          "name": "count",
+          "type": "INT",
+          "widget": {
+            "name": "count"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "api",
+          "name": "api",
+          "type": "COMBO",
+          "widget": {
+            "name": "api"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SkyCompute_AIImageGenerator"
+      },
+      "widgets_values": [
+        "microsoft/mai-image-2.6-flash",
+        false,
+        "refresh",
+        "",
+        "16:9",
+        "1K",
+        1,
+        0,
+        "randomize",
+        "openrouter"
+      ],
+      "widgets_values_named": {
+        "model": "microsoft/mai-image-2.6-flash",
+        "Auto-refresh after generation": false,
+        "refresh": "refresh",
+        "prompt": "",
+        "aspect_ratio": "16:9",
+        "resolution": "1K",
+        "count": 1,
+        "seed": 0,
+        "control_after_generate": "randomize",
+        "api": "openrouter"
+      }
+    },
+    {
+      "id": 4,
+      "type": "SaveImage",
+      "pos": [
+        1300,
+        80
+      ],
+      "size": [
+        420,
+        420
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "sky_ai"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "sky_ai"
+      }
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "SKY_AI_GATEWAY"
+    ],
+    [
+      2,
+      1,
+      0,
+      3,
+      0,
+      "SKY_AI_GATEWAY"
+    ],
+    [
+      3,
+      2,
+      0,
+      3,
+      3,
+      "STRING"
+    ],
+    [
+      4,
+      3,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}

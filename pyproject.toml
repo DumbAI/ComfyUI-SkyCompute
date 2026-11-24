@@ -1,0 +1,47 @@
+[project]
+name = "comfyui-skycompute"
+description = "Nodes for the Sky Compute platform: prompts and images from hosted models through the workspace's AI gateway, an OpenAI-compatible endpoint that holds the keys."
+version = "0.1.0"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+# Nothing beyond what ComfyUI ships (aiohttp, numpy, pillow, torch).
+dependencies = []
+classifiers = ["Operating System :: OS Independent"]
+
+[project.urls]
+Repository = "https://github.com/DumbAI/ComfyUI-SkyCompute"
+"Bug Tracker" = "https://github.com/DumbAI/ComfyUI-SkyCompute/issues"
+
+# The Comfy Registry (https://registry.comfy.org)
+[tool.comfy]
+PublisherId = "dumbai"
+DisplayName = "Sky Compute"
+Icon = ""
+includes = []
+
+[dependency-groups]
+dev = [
+    "aiohttp>=3.10",
+    "numpy>=1.26",
+    "pillow>=10",
+    "pytest>=8",
+    "pytest-aiohttp>=1.1",
+    "ruff>=0.8",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "--import-mode=importlib"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.uv]
+package = false
